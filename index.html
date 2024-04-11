@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local Event Finder</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Local Event Finder</h1>
+    </header>
+    <main>
+      <section id="search-section">
+        <input type="text" id="search-input" placeholder="Search events..." />
+        <button id="search-btn">Search</button>
+      </section>
+      <section id="events-section">
+        <h2>Events Near You</h2>
+        <div id="events-container"></div>
+      </section>
+      <section id="my-events-section">
+        <h2>My Events</h2>
+        <div id="my-events-container"></div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2024 Local Event Finder</p>
+    </footer>
+
+    <!-- Event Details Modal -->
+    <div id="event-details-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2>Event Details</h2>
+        <!-- Event details will be populated here -->
+      </div>
+    </div>
+  </body>
+</html>
