@@ -114,7 +114,21 @@ function removeEvent(eventId) {
 }
 
 function searchEvents() {
-  // Implement this function based on your application's needs.
-  // This could involve making a new API call with search criteria or filtering the currently displayed events.
-  fetchEvents();
+  const searchInput = document
+    .getElementById("search-input")
+    .value.toLowerCase(); // Get the search input value and convert it to lowercase for case-insensitive search
+  const events = document.querySelectorAll(".event"); // Get all event elements
+
+  events.forEach((event) => {
+    const eventName = event
+      .querySelector(".event-title")
+      .textContent.toLowerCase(); // Get the event name and convert it to lowercase
+
+    if (eventName.includes(searchInput)) {
+      // Check if the event name contains the search input
+      event.style.display = "block"; // Show the event
+    } else {
+      event.style.display = "none"; // Hide the event if it doesn't match the search criteria
+    }
+  });
 }
