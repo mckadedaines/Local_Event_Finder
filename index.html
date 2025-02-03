@@ -4,38 +4,137 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Local Event Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </head>
   <body>
     <header>
-      <h1>Local Event Finder</h1>
+      <nav class="nav-container">
+        <h1><i class="fas fa-calendar-alt"></i> Local Event Finder</h1>
+        <div class="view-toggle">
+          <button id="grid-view-btn" class="view-btn active" title="Grid View">
+            <i class="fas fa-th-large"></i>
+          </button>
+          <button id="list-view-btn" class="view-btn" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </nav>
     </header>
+
     <main>
       <section id="search-section">
-        <input type="text" id="search-input" placeholder="Search events..." />
-        <button id="search-btn">Search</button>
+        <div class="search-container">
+          <div class="search-input-group">
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search events..."
+            />
+          </div>
+          <div class="filter-group">
+            <input type="date" id="date-filter" />
+          </div>
+          <div class="filter-group">
+            <select id="category-filter">
+              <option value="all">All Categories</option>
+              <option value="Music">Music</option>
+              <option value="Sports">Sports</option>
+              <option value="Arts & Theatre">Arts & Theater</option>
+              <option value="Family">Family & Attractions</option>
+            </select>
+          </div>
+          <button id="search-btn">
+            <i class="fas fa-search"></i>
+            <span>Search</span>
+          </button>
+        </div>
       </section>
+
+      <section id="featured-section" class="hidden">
+        <div class="section-header">
+          <h2><i class="fas fa-star"></i> Featured Events</h2>
+        </div>
+        <div id="featured-container" class="events-grid"></div>
+      </section>
+
       <section id="events-section">
-        <h2>Events Near You</h2>
-        <div id="events-container"></div>
+        <div class="section-header">
+          <h2><i class="fas fa-calendar-week"></i> Events Near You</h2>
+          <div class="sort-container">
+            <label for="sort-select">Sort by:</label>
+            <select id="sort-select">
+              <option value="date">Date</option>
+              <option value="name">Name</option>
+              <option value="popularity">Popularity</option>
+            </select>
+          </div>
+        </div>
+        <div id="events-container" class="events-grid"></div>
+        <div class="loading-container hidden">
+          <div class="loading-spinner"></div>
+        </div>
       </section>
+
       <section id="my-events-section">
-        <h2>My Events</h2>
-        <div id="my-events-container"></div>
+        <div class="section-header">
+          <h2><i class="fas fa-bookmark"></i> My Events</h2>
+        </div>
+        <div id="my-events-container" class="events-grid"></div>
       </section>
     </main>
-    <footer>
-      <p>&copy; 2024 Local Event Finder</p>
-    </footer>
 
     <!-- Event Details Modal -->
     <div id="event-details-modal" class="modal">
       <div class="modal-content">
-        <span class="close-button">&times;</span>
-        <h2>Event Details</h2>
-        <!-- Event details will be populated here -->
+        <div class="modal-header">
+          <h2>Event Details</h2>
+          <button class="close-button"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="modal-body">
+          <!-- Event details will be populated here -->
+        </div>
+        <div class="modal-footer">
+          <button class="share-btn">
+            <i class="fas fa-share-alt"></i>
+            <span>Share</span>
+          </button>
+          <button class="save-event-btn">
+            <i class="fas fa-bookmark"></i>
+            <span>Save</span>
+          </button>
+        </div>
       </div>
     </div>
+
+    <!-- Toast Notifications -->
+    <div id="toast-container"></div>
+
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2024 Local Event Finder</p>
+        <div class="social-links">
+          <a href="#" target="_blank" title="Twitter"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" target="_blank" title="Facebook"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="#" target="_blank" title="Instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
